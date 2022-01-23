@@ -1,0 +1,42 @@
+// Function
+    //  function a block of code that performs a task
+// Returntype
+    // function that returns a value
+    // example void
+// Name()
+    // the purpose and name of the function, within the () is a parameter
+    // the {} should be displayed as
+    /*
+    void main () {
+
+    }
+    */
+// Class
+    // a class in java has relevant functions
+
+//Overview
+
+/*
+Class Main {
+    void main() {
+
+    }
+}
+*/
+// Method
+    // the void main() above is defined as a method in the class
+
+//access modifiers
+    //Public or private
+            /*
+            public class Main {
+                public void main() {
+
+                }
+            }
+            */ 
+
+//Class naming
+    //PascalNamingConvention - Classes should have their first letter as uppercase and the word as a noun
+    //CamelNamingConventions - Methods should have their first letter lowercase and the word as a verb
+
