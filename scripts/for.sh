@@ -1,4 +1,4 @@
-#1/bin/sh
+#!/usr/bin/python3
 for i in 1 2 3 4 5
 do 
 	echo "looping ... number $i"
