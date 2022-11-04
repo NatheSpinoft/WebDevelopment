@@ -1,0 +1,110 @@
+.Top_Page {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #566573;
+    border-radius: 10px;
+  }
+
+.title-top {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    font-style: italic ;
+}
+
+.Image {
+    background-color: #95A5A6;
+    padding: 10px;
+    text-align: center;
+    border: solid ;
+    border-radius: 10px;
+  }
+
+  .Image img{
+      border: 2px grey;
+      border-radius: 10px;
+  }
+
+#nav_container {
+    height: 100%; 
+    width: 100%; 
+    font-size: 0;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#home_nav, #blog_nav, #projects_nav {
+    display: inline-block; 
+    zoom: 1; 
+    vertical-align: top; 
+    font-size: 16px;
+    background-color: #f1f1f1;
+    text-align: center;
+    border: 2px solid #566573;
+}
+#home_nav {
+    width: 30%;
+}
+
+#blog_nav {
+    width: 30%;
+}
+
+#projects_nav {
+    width: 30%;
+}
+
+.Content {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #566573;
+    border-radius: 10px;
+}
+
+#Footer {
+    height: 100%; 
+    width: 100%; 
+    font-size: 0;
+    text-align: center;
+}
+#contact_nav, #about_nav {
+    display: inline-block; 
+    zoom: 1; 
+    vertical-align: top; 
+    font-size: 16px;
+    background-color: #f1f1f1;
+    text-align: center;
+    border: 2px solid #566573;
+}
+
+#contact_nav {
+    width: 33%;
+}
+
+#about_nav {
+    width: 33%;
+}
+
+
+a {
+    text-decoration: none;
+}
+    /* unvisited link */
+a:link {
+    color: rgb(211, 130, 130);
+  }
+  
+  /* visited link */
+a:visited {
+    color: green;
+  }
+  
+  /* mouse over link */
+a:hover {
+    color: #566573;
+  }
+  
+  /* selected link */
+a:active {
+    color: blue;
+}
