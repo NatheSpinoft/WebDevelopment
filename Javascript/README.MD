@@ -1,3 +1,5 @@
+# Boiler plate
+
 <!DOCTYPE html>
 <body>
 
@@ -8,3 +10,4 @@
     </script>
 </body>    
 </html>
+
