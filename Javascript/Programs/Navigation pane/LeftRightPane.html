@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Website</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .navigation {
+            width: 200px;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .navigation ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .navigation ul li {
+            margin-bottom: 10px;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .content h1 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1 id="home">Home</h1>
+            <p>Welcome to our simple website! Here you can find information about us, our services, and how to contact us.</p>
+
+            <h1 id="about">About</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis massa nec congue condimentum. Duis interdum nisl et turpis mollis, a semper augue facilisis.</p>
+
+            <h1 id="contact">Contact</h1>
+            <p>If you have any questions or need assistance, please feel free to contact us:</p>
+            <ul>
+                <li>Email: info@example.com</li>
+                <li>Phone: (123) 456-7890</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

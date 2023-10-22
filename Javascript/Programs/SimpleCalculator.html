@@ -1,0 +1,69 @@
+<html>
+    <script>
+function simpleCalculator() {
+
+    let num1 = prompt("Enter first number:");
+
+    let num2 = prompt("Enter second number:");
+
+    let operation = prompt("Enter operation (+, -, *, /):");
+
+
+    if (isNaN(num1) || isNaN(num2)) {
+
+        alert("Please enter valid numbers!");
+
+    } else if (operation === '+' || operation === '-' || operation === '*' || operation === '/') {
+
+        let result;
+
+        switch (operation) {
+
+            case '+':
+
+                result = parseFloat(num1) + parseFloat(num2);
+
+                break;
+
+            case '-':
+
+                result = parseFloat(num1) - parseFloat(num2);
+
+                break;
+
+            case '*':
+
+                result = parseFloat(num1) * parseFloat(num2);
+
+                break;
+
+            case '/':
+
+                if (parseFloat(num2) === 0) {
+
+                    alert("Cannot divide by zero!");
+
+                    return;
+
+                }
+
+                result = parseFloat(num1) / parseFloat(num2);
+
+                break;
+
+        }
+
+        alert("The result is: " + result);
+
+    } else {
+
+        alert("Invalid operation. Please use '+', '-', '*', or '/'.");
+
+    }
+
+}
+
+
+simpleCalculator();
+</script>
+</html>
