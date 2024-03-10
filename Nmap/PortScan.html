@@ -1,0 +1,120 @@
+-PS <port list> (TCP SYN Ping)
+
+    This option sends an empty TCP packet with the SYN flag set. The default destination port is 80 (configurable at compile time by changing DEFAULT_TCP_PROBE_PORT_SPEC in nmap.h). Alternate ports can be specified as a parameter. The syntax is the same as for the -p except that port type specifiers like T: are not allowed. Examples are -PS22 and -PS22-25,80,113,1050,35000. Note that there can be no space between -PS and the port list. If multiple probes are specified they will be sent in parallel.
+
+    The SYN flag suggests to the remote system that you are attempting to establish a connection. Normally the destination port will be closed, and a RST (reset) packet sent back. If the port happens to be open, the target will take the second step of a TCP three-way-handshake by responding with a SYN/ACK TCP packet. The machine running Nmap then tears down the nascent connection by responding with a RST rather than sending an ACK packet which would complete the three-way-handshake and establish a full connection. The RST packet is sent by the kernel of the machine running Nmap in response to the unexpected SYN/ACK, not by Nmap itself.
+
+    Nmap does not care whether the port is open or closed. Either the RST or SYN/ACK response discussed previously tell Nmap that the host is available and responsive.
+
+    On Unix boxes, only the privileged user root is generally able to send and receive raw TCP packets. For unprivileged users, a workaround is automatically employed whereby the connect system call is initiated against each target port. This has the effect of sending a SYN packet to the target host, in an attempt to establish a connection. If connect returns with a quick success or an ECONNREFUSED failure, the underlying TCP stack must have received a SYN/ACK or RST and the host is marked available. If the connection attempt is left hanging until a timeout is reached, the host is marked as down. 
+    
+stefanpinto@Stefans-MacBook-Air ~ % nmap -PS 192.168.2.0/24
+Starting Nmap 7.94 ( https://nmap.org ) at 2023-10-22 17:26 EDT
+Stats: 0:01:49 elapsed; 245 hosts completed (11 up), 11 undergoing Connect Scan
+Connect Scan Timing: About 96.75% done; ETC: 17:28 (0:00:03 remaining)
+Stats: 0:01:49 elapsed; 245 hosts completed (11 up), 11 undergoing Connect Scan
+Connect Scan Timing: About 96.76% done; ETC: 17:28 (0:00:03 remaining)
+Nmap scan report for 192.168.2.1
+Host is up (0.0021s latency).
+Not shown: 845 closed tcp ports (conn-refused), 149 filtered tcp ports (no-response)
+PORT      STATE SERVICE
+53/tcp    open  domain
+80/tcp    open  http
+443/tcp   open  https
+445/tcp   open  microsoft-ds
+9000/tcp  open  cslistener
+49152/tcp open  unknown
+
+Nmap scan report for 192.168.2.12
+Host is up (0.0073s latency).
+Not shown: 980 closed tcp ports (conn-refused)
+PORT      STATE    SERVICE
+500/tcp   filtered isakmp
+563/tcp   filtered snews
+667/tcp   filtered disclose
+1007/tcp  filtered unknown
+1163/tcp  filtered sddp
+1500/tcp  filtered vlsi-lm
+2170/tcp  filtered eyetv
+2998/tcp  filtered iss-realsec
+8008/tcp  open     http
+8009/tcp  open     ajp13
+8080/tcp  open     http-proxy
+8086/tcp  open     d-s-n
+8193/tcp  filtered sophos
+8443/tcp  open     https-alt
+9000/tcp  open     cslistener
+9002/tcp  filtered dynamid
+12265/tcp filtered unknown
+19350/tcp filtered unknown
+32771/tcp filtered sometimes-rpc5
+32784/tcp filtered unknown
+
+Nmap scan report for 192.168.2.13
+Host is up (0.0087s latency).
+Not shown: 994 closed tcp ports (conn-refused)
+PORT     STATE SERVICE
+8008/tcp open  http
+8009/tcp open  ajp13
+8080/tcp open  http-proxy
+8086/tcp open  d-s-n
+8443/tcp open  https-alt
+9000/tcp open  cslistener
+
+Nmap scan report for 192.168.2.14
+Host is up (0.0066s latency).
+All 1000 scanned ports on 192.168.2.14 are in ignored states.
+Not shown: 1000 closed tcp ports (conn-refused)
+
+Nmap scan report for 192.168.2.15
+Host is up (0.0033s latency).
+Not shown: 997 closed tcp ports (conn-refused)
+PORT    STATE SERVICE
+80/tcp  open  http
+515/tcp open  printer
+631/tcp open  ipp
+
+Nmap scan report for 192.168.2.16
+Host is up (0.0060s latency).
+Not shown: 995 closed tcp ports (conn-refused)
+PORT      STATE SERVICE
+8008/tcp  open  http
+8009/tcp  open  ajp13
+8443/tcp  open  https-alt
+9000/tcp  open  cslistener
+10001/tcp open  scp-config
+
+Nmap scan report for 192.168.2.17
+Host is up (0.015s latency).
+Not shown: 997 closed tcp ports (conn-refused)
+PORT     STATE    SERVICE
+3370/tcp filtered satvid-datalnk
+5061/tcp open     sip-tls
+6669/tcp filtered irc
+
+Nmap scan report for 192.168.2.19
+Host is up (0.0040s latency).
+All 1000 scanned ports on 192.168.2.19 are in ignored states.
+Not shown: 1000 closed tcp ports (conn-refused)
+
+Nmap scan report for 192.168.2.20
+Host is up (0.0050s latency).
+Not shown: 996 closed tcp ports (conn-refused)
+PORT     STATE SERVICE
+8008/tcp open  http
+8009/tcp open  ajp13
+8443/tcp open  https-alt
+9000/tcp open  cslistener
+
+Nmap scan report for 192.168.2.27
+Host is up (0.0035s latency).
+Not shown: 999 closed tcp ports (conn-refused)
+PORT   STATE SERVICE
+53/tcp open  domain
+
+Nmap scan report for 192.168.2.42
+Host is up (0.0013s latency).
+All 1000 scanned ports on 192.168.2.42 are in ignored states.
+Not shown: 1000 closed tcp ports (conn-refused)
+
+Nmap done: 256 IP addresses (11 hosts up) scanned in 364.82 seconds

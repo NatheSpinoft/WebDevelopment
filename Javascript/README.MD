@@ -1,5 +1,6 @@
 # Boiler plate
 
+<!--- 
 <!DOCTYPE html>
 <body>
 
@@ -10,4 +11,8 @@
     </script>
 </body>    
 </html>
+--->
+# Analysis
+## Hello World
+L3-001,005, and 006 are different ways to show Hello world. That is by variable, classes and functions and HTML Dom.
 
