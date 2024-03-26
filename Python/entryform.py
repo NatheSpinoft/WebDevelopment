@@ -13,7 +13,7 @@ def save_to_database():
         # Connect to PostgreSQL database
         conn = psycopg2.connect(
             dbname="receipt_db",
-            user="stefanpinto",
+            user="",
             password="",
             host="localhost",
             port="5432"
