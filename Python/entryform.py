@@ -14,7 +14,7 @@ def save_to_database():
         conn = psycopg2.connect(
             dbname="receipt_db",
             user="stefanpinto",
-            password="11KKpint",
+            password="",
             host="localhost",
             port="5432"
         )
