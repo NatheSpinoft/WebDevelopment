@@ -1,3 +1,4 @@
+#!/bin/python
 print "Hello World"
 print "This is the way"
 print 'YaY'
