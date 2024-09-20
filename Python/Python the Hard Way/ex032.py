@@ -1,34 +1,29 @@
-print "You enter a dark room with two doors. Do you go through door #1 or #2"
+the_count = [1, 2, 3, 4, 5]
+fruits = ['apples', 'oranges', 'pears', 'apricots']
+change = [1, 'pennies', 2, 'dimes', 3, 'quarters']
 
-door = raw_input()
+# This kind of for loop foes through a list
+for number in the_count:
+    print "This is count %d" % number
 
-if door == "1":
-    print "There's a giant bear here eating cream cheese. What do you do?"
-    print "1. Take the cake"
-    print "2. Scream at the bear"
+#Same as above
+for fruit in fruits:
+    print "A fruit of type: %s" % fruits
 
-    bear = raw_input()
+#also we can go through mixed lists too
+#notice we use r as we don't know what's in it
+for i in change:
+    print "I got %r" % i
 
-    if bear == "1":
-        print "The bear eats your face off. Good job!"
-    elif bear == "2":
-        print "The bear eats your legs off. Good job!"
-    else:
-        print "Well doing %s is probably better. Bear runs away" % bear
+#we can also build lists, first start with an empty one
+elements = []
 
-if door == "2":
-    print "You stare into the abyss at Cthulhu's retina."
-    print "1. Blueberries."
-    print "2. Yellow jacket clothespin"
-    print "3. Understanding revolver yelling melodies"
+#then use the range function from 0 to 5 counts
+for i in range(0, 6):
+    print "Adding %d to the list" % i 
+    #append is a function that lists understand
+    elements.append(i)
 
-    insanity = raw_input()
-
-    if insanity == "1" or insanity =="2":
-        print "Your body survived powered by a mind of jello. Good job"
-    else:
-        print "The insanity rots into your eyes into a pool of muck. Good job"
-
-else:
-    print "You stumble around and fall on a knife, lucky!"
-    
+#now we can print them out
+for i in elements:
+    print "Element was: %d" % i
