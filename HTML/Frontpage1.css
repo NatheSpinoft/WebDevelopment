@@ -1,0 +1,39 @@
+.sidenav {
+  height: 100%; /* Full height */
+  width: 160px; /* Width of the sidebar */
+  position: fixed; /* Fix it on the left side */
+  left: 0;
+  background-color: black;
+  display: flex; /* Flexbox for centering */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center links horizontally */
+  padding-top: 20px; /* Space at the top */
+}
+
+.sidenav a {
+  padding: 10px 15px;
+  margin: 10px 0; /* Spacing between links */
+  text-decoration: none;
+  font-size: 18px;
+  color: #818181;
+  text-align: center; /* Center the text inside each link */
+  width: 100%; /* Make links take up the full width of the sidebar */
+  display: block; /* Block display for full-width clickable area */
+  
+  /* When you mouse over the navigation links, change their color */
+}
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Style page content */
+  .main {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
