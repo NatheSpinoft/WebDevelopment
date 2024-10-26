@@ -1,29 +1,48 @@
-.sidenav {
-  height: 100%; /* Full height */
-  width: 160px; /* Width of the sidebar */
-  position: fixed; /* Fix it on the left side */
+.img-container {
+  width: 200px;
+  border: 2px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  display: inline;
+}
+
+.img-container img:hover {
+  scale: 110%;
+  border: 2px solid #ccc;
+  filter: sepia(10);
+}
+
+.img-container img {
+  width: 200px;
+  height: 300px;
+
+}
+.nav {
+  height: 50%; /* Full height */
+  width: 100%; /* Width of the sidebar */
+  position: center; /* Fix it on the left side */
   left: 0;
   background-color: black;
   display: flex; /* Flexbox for centering */
-  flex-direction: column; /* Stack items vertically */
   align-items: center; /* Center links horizontally */
-  padding-top: 20px; /* Space at the top */
+  padding-top: 10px; /* Space at the top */
 }
 
-.sidenav a {
-  padding: 10px 15px;
-  margin: 10px 0; /* Spacing between links */
+.nav a {
+  padding: 0px 10px;
+  margin: 0px auto; /* Spacing between links */
   text-decoration: none;
   font-size: 18px;
   color: #818181;
   text-align: center; /* Center the text inside each link */
-  width: 100%; /* Make links take up the full width of the sidebar */
+  width: 10%; /* Make links take up the full width of the sidebar */
   display: block; /* Block display for full-width clickable area */
   
   /* When you mouse over the navigation links, change their color */
 }
-  .sidenav a:hover {
+  .nav a:hover {
     color: #f1f1f1;
+    scale: 110%;
   }
   
   /* Style page content */
@@ -34,6 +53,6 @@
   
   /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+    .nav {padding-top: 15px;}
+    .nav a {font-size: 18px;}
   }
