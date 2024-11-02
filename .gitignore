@@ -1,4 +1,5 @@
 .vscode/
+.venv/
 
 SQL/SQL-Course-Materials/
 SQL/Shortcuts-for-Jupyter.pdf
