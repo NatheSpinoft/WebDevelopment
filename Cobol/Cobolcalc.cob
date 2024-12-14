@@ -1,0 +1,23 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. SimpleAddition.
+
+ENVIRONMENT DIVISION.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01  NUM1        PIC 9(3) VALUE ZEROS.
+01  NUM2        PIC 9(3) VALUE ZEROS.
+01  SUM         PIC 9(3) VALUE ZEROS.
+
+PROCEDURE DIVISION.
+    DISPLAY "Enter first number: ".
+    ACCEPT NUM1.
+
+    DISPLAY "Enter second number: ".
+    ACCEPT NUM2.
+
+    ADD NUM1 TO NUM2 GIVING SUM.
+
+    DISPLAY "The sum of " NUM1 " and " NUM2 " is: " SUM.
+
+    STOP RUN.
