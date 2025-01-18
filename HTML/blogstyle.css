@@ -1,0 +1,26 @@
+header {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+
+body {
+    background-color: azure;
+    color:black
+    
+
+}
+
+section {
+    margin-right: 100px;
+    margin-left: 100px;
+    max-width: fit-content;
+
+}

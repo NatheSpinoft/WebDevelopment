@@ -1,11 +1,21 @@
 .img-container {
+<<<<<<< HEAD
+=======
+  width: 200px;
+>>>>>>> 4d370b2398d5d123a6faf5acf4ed8c800b54426e
   padding: 10px;
   text-align: center;
   display: inline;
+  margin: auto;
 }
 
 .img-container img:hover {
+<<<<<<< HEAD
   scale: 110%;
+=======
+  scale: 105%;
+  border: 2px solid #ccc;
+>>>>>>> 4d370b2398d5d123a6faf5acf4ed8c800b54426e
   filter: sepia(10);
 }
 
@@ -44,8 +54,8 @@
   
   /* Style page content */
   .main {
-    margin-left: 160px; /* Same as the width of the sidebar */
-    padding: 0px 10px;
+    margin-left: 10px; /* Same as the width of the sidebar */
+    padding: 10px 10px;
   }
   
   /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */

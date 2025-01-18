@@ -1,7 +1,7 @@
 Month_day_year = '%d, %d, %d'
 
-MM = input("Month> ")
-DD = input("Day> ")
-YY = input("Year> ")
+MM = int(input("Month> "))
+DD = int(input("Day> "))
+YY = int(input("Year> "))
 
-print(Month_day_year) % (MM, DD, YY)
+print("Date: %d-%d-%d" % (MM, DD, YY))
