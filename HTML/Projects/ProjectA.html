@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="ProjectA.css">
+  <title>Website Layout</title>
+</head>
+<body>
+  <header class="header">Header</header>
+  <nav class="sidenav">
+    <ul>
+        
+        <li><a href="#"> Home </a></li>
+        <li>
+            <a href="#" class="content"> Content </a>
+            <ul class="submenu"> 
+                <li><a href="#">Subject 1</a></li>
+                <li><a href="#">Subject 2</a></li>
+                <li><a href="#">Subject 3</a></li>
+            </ul></li>
+        <li><a href="#"> About </a></li>
+        
+    </ul>
+    </nav>
+  <nav class="middlenav">Middle Navigation
+    <section>
+
+    </section>
+  </nav>ß
+  <main class="content">Main Content</main>
+  <footer class="footer">Footer</footer>
+  <script>ß
+    document.querySelector('.content-link').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevents the link from navigating
+        const submenu = this.nextElementSibling;
+        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+    });
+    </script>
+</body>
+</html>
