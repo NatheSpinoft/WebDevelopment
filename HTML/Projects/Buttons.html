@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="ProjectA.css">
+  <title>Website Layout</title>
+</head>
+<style>
+    .header {
+        grid-area:header;
+        background-color: black;
+        color: white;
+    }
+    .footer {
+        grid-area:footer;
+        background-color: black;
+        color: white;
+        text-align: right;
+    }
+    .main-div {
+        height: 50vh;
+        width: 200vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 20px;
+        
+    }
+    
+    input[type="button"] {
+        font-family: helvetica, 'Times New Roman', Times, serif;
+        font-size: medium;
+        height: 50px;
+        width: 50px;
+        margin: 4px;
+        background-color: green;
+        
+    }
+    input[type="textfield"]{
+        font-size: medium;
+        height: 30px;
+        width: 240px;
+        margin: 4px;
+    }
+
+
+</style>
+<script>
+
+    function appTextfield(value) {
+        var textField = document.getElementById("textF");
+        textField.value += value;
+        
+    }
+
+    function clearField() {
+        var textField = document.getElementById("textF");
+        textField.value = "";
+    }
+    function Calc() {
+        var textField = document.getElementById("textF");
+        try {
+            // Evaluate the expression entered in the text field
+            textField.value = eval(textField.value); // The eval function evaluates the expression
+        } catch (e) {
+            textField.value = 'Error'; // In case of invalid input
+        }
+    }
+</script>
+<body>
+  <header class="header">
+    Calculating
+  </header>
+  <div class="main-div">
+  <main class="main">
+    <input type="textfield" id="textF" placeholder="Enter values" readonly></input>
+    <br>
+    <input type="button" id="A1" value="1" onclick="appTextfield('1')"></input>
+    <input type="button" id="A2" value="2" onclick="appTextfield('2')"></input>
+    <input type="button" id="A3" value="3" onclick="appTextfield('3')"></input>
+    <input type="button" id="C" value="C" onclick="clearField()"></input>
+    <br>
+    <input type="button" id="A4" value="4" onclick="appTextfield('4')"></input>
+    <input type="button" id="A5" value="5" onclick="appTextfield('5')"></input>
+    <input type="button" id="A6" value="6" onclick="appTextfield('6')"></input>
+    <input type="button" id="+" value="+" onclick="appTextfield('+')"></input>
+    <br>
+    <input type="button" id="A7" value="7" onclick="appTextfield('7')"></input>
+    <input type="button" id="A8" value="8" onclick="appTextfield('8')"></input>
+    <input type="button" id="A9" value="9" onclick="appTextfield('9')"></input>
+    <input type="button" id="-" value="-" onclick="appTextfield('-')"></input>
+    <br>
+    <input type="button" id="A0" value="0" onclick="appTextfield('0')"></input>
+    <input type="button" id="/" value="/" onclick="appTextfield('/')"></input>
+    <input type="button" id="*" value="*" onclick="appTextfield('*')"></input>
+    <input type="button" id="Calc" value="Calc" onclick="Calc()"></input>
+  </main>
+  </div>
+  <footer class="footer">
+    <a href="#">About</a>
+  </footer>
+</body>
+</html>

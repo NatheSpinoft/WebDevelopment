@@ -2,6 +2,83 @@
 <title>Burger</title>
 <head>
     <link rel="stylesheet" href="burgerstyle.css">
+    <style>
+        
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Adds space between the div and paragraph */
+            border: 5px solid red;
+        }
+        .images {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;    
+            transform-origin: center;
+            border: 6px solid lightblue;
+        }
+        .main {
+            flex: 1;
+            max-width: 300px;
+        }
+        .image-circle {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            animation: rotateClockwise 20s linear infinite;
+
+        }
+        .image-circle img {
+            position: absolute;
+            border-radius: 10px;
+        }
+        
+        .orbit {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            transition: transform 5s;
+        }
+        .img1 { 
+            top: 50%;
+            left: 0;
+            transform: translateX(-50%) rotate(0deg);
+        }
+        .img2 { 
+            top: 0;
+            right: 50%; 
+            transform: translateY(-50%) rotate(0deg); 
+        }
+        .img3 { 
+            bottom: 0;
+            left: 50%; 
+            transform: translateX(-50%) rotate(0deg); 
+        }
+        .img4 { 
+            bottom: 50%;
+            right: 0; 
+            transform: translateY(-50%) rotate(0deg); 
+        }
+
+@keyframes rotateClockwise {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+    }
+
+    .images img {
+    animation: counterRotate 20s linear infinite;
+    border-radius: 30px;
+}
+
+@keyframes counterRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+}
+    </style>
 </head>
 <body>
     <!-- navigation -->
@@ -13,29 +90,26 @@
         <a href="#">Contact</a>
         
     </div>
-    <div class="images">
-        <div class="image-container">
-        <img src="Chicken.jpeg" width="300" height="200">
-            <p>
-                The chicken burger contains chicken, tomato, lettuce,  and mayo
-            </p>
+    <div class="container">
+        <div class="images">
+            <div class="image-circle">
+                <img src="Chicken.jpeg" width="300" height="200" class="orbit img1">
+                <img src="Pounder.jpeg" width="300" height="200" class="orbit img2">
+                <img src="Quarter.jpeg" width="300" height="200" class="orbit img3"> 
+                <img src="fries.jpeg" width="300" height="200" class="orbit img4">
+            </div>
         </div>
-        <div class="image-container">
-        <img src="Pounder.jpeg" width="300" height="200">
-            <p>
-                The pounder contains ketchup, mayo, lettuce and pickles 1 pound meant
-            </p>
-        </div>
-        <div class="image-container">
-        <img src="Quarter.jpeg" width="300" height="200"> 
-            <p>
-                The [punder contains Ketchup, mayo, lettuce and pickles 1/4 pound meat]
-            </p>
-        </div>
+            <div class="main">
+                <p>
+            Fries and burgers are great!!
+                </p>
+            </div>
     </div>
   <!-- Page content -->
     <div class="main">
-        
+        <p>
+            Fries and burgers are great!!
+        </p>
     </div>
-    </body>
+</body>
 </html>

@@ -1,0 +1,19 @@
+header {
+    background-color: antiquewhite;
+    position: sticky;
+    text-align: center;
+}
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#dropdownMenuButton {
+    color:beige;
+    background-color: #d9b99b;
+}
+footer {
+    background-color: antiquewhite;
+    text-align: left;
+}
+main {
+    background-color: beige;
+}

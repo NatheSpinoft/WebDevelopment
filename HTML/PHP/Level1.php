@@ -7,3 +7,4 @@ echo "<br />";
 $current_user = $variable1;
 echo $current_user;
     //
+?>

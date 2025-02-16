@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard Deviation Calculator</title>
+</head>
+<body>
+    <h1>Standard Deviation Calculator for 10 Arrays of Data</h1>
+    <form id="dataForm">
+        <div id="arraysContainer">
+            <!-- Input fields for each of the 10 arrays -->
+            <div>
+                <label for="array1">Array 1:</label>
+                <input type="text" id="array1" placeholder="Enter numbers separated by commas">
+            </div>
+            <div>
+                <label for="array2">Array 2:</label>
+                <input type="text" id="array2" placeholder="Enter numbers separated by commas">
+            </div>
+            <div>
+                <label for="array3">Array 3:</label>
+                <input type="text" id="array3" placeholder="Enter numbers separated by commas">
+            </div>
+            <div>
+                <label for="array4">Array 4:</label>
+                <input type="text" id="array4" placeholder="Enter numbers separated by commas">
+            </div>
+            <div>
+                <label for="array5">Array 5:</label>
+                <input type="text" id="array5" placeholder="Enter numbers separated by commas">
+            </div>
+            <div>
+                <label for="array6">Array 6:</label>
+                <input type="text" id="array6" placeholder="Enter numbers separated by commas">
+            </div>
+            <div>
+                <label for="array7">Array 7:</label>
+                <input type="text" id="array7" placeholder="Enter numbers separated by commas">
+            </div>
+            <div>
+                <label for="array8">Array 8:</label>
+                <input type="text" id="array8" placeholder="Enter numbers separated by commas">
+            </div>
+            <div>
+                <label for="array9">Array 9:</label>
+                <input type="text" id="array9" placeholder="Enter numbers separated by commas">
+            </div>
+            <div>
+                <label for="array10">Array 10:</label>
+                <input type="text" id="array10" placeholder="Enter numbers separated by commas">
+            </div>
+        </div>
+        <button type="button" onclick="calculateStdDev()">Calculate Standard Deviation</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        // Function to calculate standard deviation for an array
+        function calculateStandardDeviation(arr) {
+            const mean = arr.reduce((a, b) => a + b, 0) / arr.length;
+            const squaredDifferences = arr.map(x => Math.pow(x - mean, 2));
+            const variance = squaredDifferences.reduce((a, b) => a + b, 0) / arr.length;
+            return Math.sqrt(variance);
+        }
+
+        // Function to calculate standard deviation for all arrays
+        function calculateStdDev() {
+            const resultsHtml = [];
+            
+            // Loop through each input field
+            for (let i = 1; i <= 10; i++) {
+                const arrayInput = document.getElementById('array' + i).value;
+                if (arrayInput) {
+                    // Convert input string into an array of numbers
+                    const array = arrayInput.split(',').map(num => parseFloat(num.trim()));
+                    
+                    // Check if all values are valid numbers
+                    if (array.some(isNaN)) {
+                        resultsHtml.push(`<p>Array ${i}: Invalid input. Please enter only numbers separated by commas.</p>`);
+                    } else {
+                        const stdDev = calculateStandardDeviation(array);
+                        resultsHtml.push(`<p>Array ${i}: [${array.join(', ')}] - Standard Deviation: ${stdDev.toFixed(2)}</p>`);
+                    }
+                }
+            }
+
+            // Display results
+            document.getElementById('results').innerHTML = resultsHtml.join('');
+        }
+    </script>
+</body>
+</html>
