@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+}
+
+.face {
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.mouthpiece {
+    width: 120px;
+    height: 50px;
+    background-color: grey;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.nose {
+    width: 20px;
+    height: 30px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.left-nose {
+    margin-right: 10px;
+}
+
+.right-nose {
+    margin-left: 10px;
+}
