@@ -1,0 +1,37 @@
+body {
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure the body takes the full viewport height */
+    margin: 0; /* Remove default margin */
+}
+
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 500px;
+    background-color: aqua;
+    position: relative; /* Needed for positioning child elements */
+}
+
+.box1, .box2 {
+    width: 100px; /* Set a fixed width */
+    height: 100px; /* Set a fixed height */
+    box-sizing: border-box; /* Ensure padding and borders are included in the size */
+}
+
+.box1 {
+    background-color: blue;
+    position: absolute; /* Position absolutely within the container */
+    top: 20px; /* 20px from the top of the container */
+    left: 20px; /* 20px from the left of the container */
+}
+
+.box2 {
+    background-color: blue; /* Add a color for visibility */
+    position: absolute; /* Position absolutely within the container */
+    top: 20px; /* Position below box1 with some spacing */
+    right: 20px; /* Align with box1 */
+}

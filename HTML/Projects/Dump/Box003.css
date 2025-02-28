@@ -1,0 +1,58 @@
+body {
+    background-color: lightgray;
+    display: flex; /* allows justify content and align items*/
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.Container {
+    border-radius: 12px;
+    display: flex;
+    background-color: rgb(87, 65, 108);
+    width: 700px;
+    height: 100px;
+    justify-content: start;
+    align-items: center;
+}
+.loading {
+    position: relative;
+    width: 100%; /* Full width of the container */
+    height: 90px;
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
+    border-radius: 10px;
+    overflow: hidden; /* Ensure the inner bar doesn't overflow */
+}
+
+.loading::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0; /* Start with 0 width */
+    height: 100%;
+    background-color: white; /* Solid white growing bar */
+    animation: growWidth 3s infinite ease-in-out;
+}
+
+@keyframes growWidth {
+    0% {
+        width: 0;
+    }
+    20% {
+        width: 20%;
+    }
+    30% {
+        width: 20%;
+    }
+    60% {
+        width: 60%;
+    }
+    70% {
+        width: 60%;
+    }
+    100% {
+        width: 100%;
+    }
+}
