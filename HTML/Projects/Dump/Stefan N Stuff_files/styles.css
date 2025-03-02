@@ -1,0 +1,233 @@
+.container {
+    gap: 10px;
+}
+
+body {
+    background-image: url('Wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no repeat;
+    color: #000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.main-content {
+    background-color: #F0F89FF;
+    border-color: white;
+    border-style: solid;
+    border-wdith: 3px;
+    padding: 10px;
+    border-radius: 10px    
+}
+
+        .container {
+            
+            
+            align-items: center;
+            gap: 10px;
+           
+            margin: auto;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            resize: vertical;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+form {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    max-width: 500px; /* Optional: Set a max width for the form */
+    margin: 15px; /* Center the form horizontally */
+}
+
+form .form-group {
+    display: flex;
+    flex-direction: column; /* Stack label and input vertically */
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+form label {
+    margin-bottom: 5px; /* Add space between label and input */
+    font-weight: bold; /* Optional: Make labels bold */
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="date"],
+form textarea,
+form select {
+    width: 100%; /* Full width for input elements */
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;    
+}
+
+form button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #00CED1;
+}
+
+/* Container that holds both the main content and the weather */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the top */
+}
+
+.main-content {
+    flex-basis: 75%; /* Take up 75% of the container */
+    padding-right: 20px; /* Add space between the content and weather */
+}
+
+
+.wrap {
+    border: 4px solid #ccc; /* Border around the card */
+    border-radius: 10px; /* Rounded corners */
+    padding: 30px; /* Space inside the card */
+    width: 265px; /* Set a width for the card */
+}
+
+.wrap label,
+.wrap input,
+.wrap select {
+    width: 100%;
+    box-sizing: border-box;
+}
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 85%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+}
+
+/* Weather section on the right */
+#weather {
+    flex-basis: 25%; /* Take up 25% of the container (about 20% is reasonable) */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Make sure the content inside doesn't overflow */
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #F0FFFF;
+    padding: 20px;
+    text-align: center;
+}
+
+label {
+    flex: 0 0 5%; /* Added */
+    margin-right: 1px; /* Added */
+}
+
+
+nav {
+    background-color: #F0F8FF;
+    margin: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 5px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 20px;
+}
+
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #00FFFF;
+    padding: 8px;
+    box-shadow: 3px 3px;
+    border-radius: 4px; 
+}
+
+main {
+    padding: 20px;
+}
+
+#weather {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+footer {
+    background-color: #F0FFFF;
+    padding: 10px;
+    bottom: 0;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    #weather, .main-content {
+        flex-basis: 100%;
+        padding-right: 0;
+    }
+}
+/* Styles for the receipts table */
+table {
+    width: 100%; /* Make the table take full width */
+    border-collapse: collapse; /* Collapse borders for cleaner look */
+    margin-bottom: 20px; /* Space below the table */
+}
+
+th, td {
+    padding: 8px; /* Padding for table cells */
+    text-align: left; /* Align text to the left */
+    border: 1px solid #ccc; /* Border for cells */
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+    /* Enable horizontal scrolling for smaller screens */
+    #receiptsTable {
+        display: block; /* Display table as a block */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        white-space: nowrap; /* Prevent wrapping */
+    }
+    th, td {
+        white-space: nowrap; /* Prevent cell content from wrapping */
+    }
+}

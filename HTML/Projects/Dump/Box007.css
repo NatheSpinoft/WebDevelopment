@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(87, 87, 226);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box {
+    background-color: white;
+    border-radius: 20px;
+    width: 700px;
+    height: 400px;
+}
+
+.box:hover {
+    background-color: aqua;
+
+}
+
+#button {
+    display:block;
+    margin-top: 10px;
+    background-color: aquamarine;
+    width:40px;
+}

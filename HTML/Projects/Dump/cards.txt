@@ -1,0 +1,5 @@
+Apple:Fruit
+Dog:Animal
+Sun:Star
+Car:Vehicle
+Tree:Plant

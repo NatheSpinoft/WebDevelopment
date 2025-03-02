@@ -1,0 +1,31 @@
+body{
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh
+}
+
+.container {
+    display:flex;
+    flex-wrap: wrap;
+    background-color: lightskyblue;
+    height: 50vh; /* Adjusted to a reasonable height */
+    width: 750px; /* Changed to valid width */
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+
+.card1 {
+    background-color: blue;
+    width: 500px;
+    height: 200px;
+    border-radius: 20px;
+}
+
+.card1:hover {
+    transform: rotate(180deg);
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boxes</title>
+    <link rel="stylesheet" href="Box007.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <br>
+        <button id="button" onclick="incrementCounter()">next</button>
+        <p id="counterDisplay">Counter: 0</p> <!-- Display the counter -->
+    </div>
+</body>
+<script>
+    var counter = 0; // Initialize the counter
+
+    // Function to increment the counter
+    function incrementCounter() {
+        counter++; // Increment counter by 1
+        document.getElementById("counterDisplay").textContent = "Counter: " + counter; // Update the display
+    }
+</script>
+</html>
