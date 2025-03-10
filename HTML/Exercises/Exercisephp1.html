@@ -15,7 +15,13 @@
             <li><a href="#">Home</a></li>
             <li><a href="#">Specials</a></li>
         </ul>
+        <div class="cart-container">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </div> 
+           
             <div class="search-container">
+                <button id="clear-cart">Clear Cart</button>   
             <input type="text" id="search">
             <button id="search-submit">
                 <i class="fas fa-search"></i>
@@ -40,7 +46,7 @@
                         <div class="card-content">
                             <h1>Pepperoni Pizza</h1>
                             <p> Classic Peppereni, with new york style pepperoni</p>
-
+                            <button class="add-to-cart">Add to Cart</button>
                         </div>
 
                 </div>
@@ -49,7 +55,7 @@
                         <div class="card-content">
                             <h1>Hawaiian Pizza</h1>
                             <p> Hawaiian pizza with fresh pinapples and pepperoni</p>
-
+                            <button class="add-to-cart">Add to Cart</button>
                         </div>
 
                 </div>
@@ -58,7 +64,7 @@
                         <div class="card-content">
                             <h1>Vegetarian Pizza</h1>
                             <p> Fresh peppers and basil, with sundried tomatoes</p>
-
+                            <button class="add-to-cart">Add to Cart</button>
                         </div>
 
                 </div>
@@ -99,6 +105,34 @@
             
         </div>
     </div>
-    
+    <script>
+
+let cartCount = localStorage.getItem('cartCount') ? parseInt(localStorage.getItem('cartCount')) : 0;
+
+// Function to update cart count on UI and save to Local Storage
+function updateCartCount() {
+    document.getElementById('cart-count').textContent = cartCount;
+    localStorage.setItem('cartCount', cartCount);
+}
+
+// Set initial cart count on page load
+updateCartCount();
+
+// Add event listeners to all "Add to Cart" buttons
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+        cartCount++;  // Increment count
+        updateCartCount();  // Update UI and save to Local Storage
+    });
+});
+
+document.getElementById('clear-cart').addEventListener('click', () => {
+    cartCount = 0;
+    updateCartCount();
+});
+
+
+
+    </script>
 </body>
 </html>

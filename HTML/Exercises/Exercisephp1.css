@@ -26,6 +26,19 @@ body {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
+.cart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;  /* This pushes the cart container to the right */
+}
+
+#cart-count {
+    margin-left: 5px;
+    font-size: 18px;
+    color: #fff; /* White color for better visibility */
+}
+
 #search-container{
     display: flex;
     align-items: center;
@@ -169,4 +182,25 @@ tr:hover {
 .card-content p {
     font-size: 14px;
     color: #333;
+}
+/* ----------------------- CART ---------------------------->*/
+
+.cart-container {
+    position: relative;
+    font-size: 24px;
+    margin-right: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+#cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
 }
