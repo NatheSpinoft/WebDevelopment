@@ -1,0 +1,53 @@
+.bubbleText{
+    position: absolute;
+    top:50px;
+    left:50px;
+    transform: translate(-50%, -50%) rotateY(40deg);
+    width:300px;
+    height:300px;
+    background-color: #ffffff4d;
+    transform-style: preserve-3d;
+    perspective: 1200px;
+    transition: 0.3s;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.bubbleText h1 {
+    font-size: 2.2em;
+    font-weight: bold;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    margin: 0.5em;
+}
+
+.bubbleText p {
+    margin: 1.3em;
+    line-height: 120%;
+}
+
+.bubbleText::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 30px 0 30px 37.5px;
+    border-color: transparent transparent transparent #ffffff4d;
+    position: absolute;
+    right: 37px;
+    top: 120px;
+    transition: 0.3s;
+
+}
+
+.bubbleText::after {
+    content:"";
+    position: absolute;
+    left: -30px;
+    top: 0px;
+    width: 30px;
+    height: 300px;
+    background-color: #ffffff4d;
+    transform-origin:right center ;
+    transform: rotateY('-90deg')
+}
