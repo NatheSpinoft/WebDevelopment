@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 15px; /* space between boxes */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.box {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.pink {
+    background-color: #ff9ff3;
+}
+
+.pink:hover {
+    background-color: #1dd1a1;
+}
+.green {
+    background-color: #1dd1a1;
+}
+.green:hover {
+    background-color: #ff9ff3;
+}

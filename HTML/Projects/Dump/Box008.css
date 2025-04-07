@@ -1,0 +1,85 @@
+body {
+    background-color: antiquewhite;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    margin: 0;
+    padding: 10px 0;
+    font-weight: 300;
+}
+
+header {
+    background-color: grey;
+    color: white;
+    width: 100%;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #333;
+    margin: 20px 0 10px 0;
+}
+
+/* Flexbox Example */
+.Flexbox {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    height: 100px;
+    margin-bottom: 30px;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.Flexbox div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+/* Grid Example */
+.Gridbox {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.Gridbox div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+/* Color classes */
+.red1 {
+    background-color: #ff6b6b;
+}
+
+.pink1 {
+    background-color: #ff9ff3;
+}
+
+.green1 {
+    background-color: #1dd1a1;
+}
