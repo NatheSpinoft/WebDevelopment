@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    background-color: beige;
+}
+
+
+.center-nav{
+    list-style-type:none;
+    background-color: aqua;
+    border: 1px solid black;
+    border-radius: 25px;
+}
+
+.center-nav ul{
+    list-style-type: none;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+.center-nav ul li{
+    padding-left: 10px;;
+}
