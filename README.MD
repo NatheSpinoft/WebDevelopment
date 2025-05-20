@@ -48,7 +48,7 @@ Steps to resolve:
 
 Evaluation: grub now works and can enter Ubuntu
 
-Documentation of Changes
+#Documentation of Changes
 Project Overview
 
 This document outlines the changes implemented in the app.py and smtp.py files for the Flask application, as well as configurations related to the website stefannstuff.com.
