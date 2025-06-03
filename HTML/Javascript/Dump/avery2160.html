@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Avery 2160 Label Generator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+
+    #label-sheet {
+      width: 4.25in;
+      height: 10in;
+      background: white;
+      padding: 0.25in;
+      margin: auto;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      display: flex;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+    }
+
+    .label {
+      width: 2.625in;
+      height: 1in;
+      border: 1px dashed #ccc;
+      margin: 0.125in;
+      padding: 0.1in;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .label input {
+      width: 100%;
+      height: 100%;
+      border: none;
+      font-size: 12px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    #downloadBtn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #downloadBtn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="text-align: center;">Avery 2160 Label Generator</h1>
+  <p style="text-align: center;">Enter your label text below. Click "Download as PDF" to generate your labels.</p>
+
+  <div id="label-sheet">
+    <!-- 8 labels -->
+    <div class="label"><input type="text" placeholder="Label 1"></div>
+    <div class="label"><input type="text" placeholder="Label 2"></div>
+    <div class="label"><input type="text" placeholder="Label 3"></div>
+    <div class="label"><input type="text" placeholder="Label 4"></div>
+    <div class="label"><input type="text" placeholder="Label 5"></div>
+    <div class="label"><input type="text" placeholder="Label 6"></div>
+    <div class="label"><input type="text" placeholder="Label 7"></div>
+    <div class="label"><input type="text" placeholder="Label 8"></div>
+  </div>
+
+  <button id="downloadBtn">Download as PDF</button>
+
+  <script>
+    document.getElementById("downloadBtn").addEventListener("click", function () {
+      const sheet = document.getElementById("label-sheet");
+      const clone = sheet.cloneNode(true);
+      const inputs = clone.querySelectorAll("input");
+
+      inputs.forEach(input => {
+        const text = document.createElement("div");
+        text.textContent = input.value || " ";
+        text.style.fontSize = "12px";
+        text.style.textAlign = "center";
+        text.style.width = "100%";
+        text.style.height = "100%";
+        text.style.display = "flex";
+        text.style.alignItems = "center";
+        text.style.justifyContent = "center";
+        input.parentNode.replaceChild(text, input);
+      });
+
+      const opt = {
+        margin:       0,
+        filename:     'avery-2160-labels.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: [4.25, 10], orientation: 'portrait' }
+      };
+
+      html2pdf().set(opt).from(clone).save();
+    });
+  </script>
+
+</body>
+</html>

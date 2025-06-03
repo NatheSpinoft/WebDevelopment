@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cost of Items</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 40px;
+        }
+
+        #content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 900px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            font-size: 14px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #aaa;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #eee;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 90%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #downloadBtn {
+            display: block;
+            margin: 30px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #downloadBtn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div id="content">
+    <h1>Cost of Items</h1>
+    <p>
+        Under Generally Accepted Accounting Principles (GAAP), all business expenses must be recognized in the period in which they are incurred, not necessarily when cash is paid. This ensures consistency, comparability, and transparency in financial reporting by aligning expenses with the revenue they help generate.
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Item Description</th>
+                <th>Cost ($)</th>
+                <th>Expense Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 12 editable rows -->
+            <script>
+                for (let i = 0; i < 12; i++) {
+                    document.write(`
+                        <tr>
+                            <td><input type="text" placeholder="e.g. Laptop"></td>
+                            <td><input type="number" placeholder="e.g. 499.99"></td>
+                            <td><input type="text" placeholder="e.g. Office Equipment"></td>
+                        </tr>
+                    `);
+                }
+            </script>
+        </tbody>
+    </table>
+</div>
+
+<button id="downloadBtn">Download as PDF</button>
+
+<script>
+    document.getElementById("downloadBtn").addEventListener("click", function () {
+        // Clone content and replace inputs with their values
+        const clone = document.getElementById("content").cloneNode(true);
+        const inputs = clone.querySelectorAll("input");
+        inputs.forEach(input => {
+            const span = document.createElement("span");
+            span.textContent = input.value || " ";
+            input.parentNode.replaceChild(span, input);
+        });
+
+        const opt = {
+            margin:       0.5,
+            filename:     'Cost_of_Items_Fillable.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2 },
+            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        html2pdf().set(opt).from(clone).save();
+    });
+</script>
+
+</body>
+</html>
