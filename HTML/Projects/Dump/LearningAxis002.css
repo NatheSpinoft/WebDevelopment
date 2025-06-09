@@ -32,6 +32,5 @@ p span{
     color: transparent;
     text-shadow: none;
     -webkit-text-stroke: 1px #ff389c80;
-    text-stroke: 1px #ff389c80;
     z-index: -1;
 }
