@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Printable Form with Summary</title>
+  <style>
+    body {
+      font-family: "Times New Roman", Times, serif;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+
+    .page {
+      width: 744px;
+      min-height: 1056px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      font-size: 12pt;
+      page-break-after: always;
+    }
+
+    fieldset {
+      border: 1px solid #000;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    legend {
+      font-weight: bold;
+      font-size: 14pt;
+    }
+
+    .row {
+      margin-top: 10px;
+      overflow: hidden;
+    }
+
+    .col {
+      float: left;
+      width: 32%;
+      margin-right: 2%;
+      box-sizing: border-box;
+    }
+
+    .row .col:last-child {
+      margin-right: 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 5px;
+      font-size: 12pt;
+      box-sizing: border-box;
+    }
+
+    .travel-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .travel-table th,
+    .travel-table td {
+      border: 1px solid #000;
+      padding: 5px;
+    }
+
+    .add-button {
+      margin-top: 10px;
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .print-button, .summary-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 14px;
+      background: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .signature {
+      margin-top: 40px;
+    }
+
+    @media print {
+      .print-button,
+      .add-button,
+      .summary-button {
+        display: none;
+      }
+
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .page {
+        width: 100%;
+        min-height: auto;
+        box-shadow: none;
+        padding: 0.5in;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="print-button" onclick="window.print()">Print Page</button>
+  <button class="summary-button" onclick="populateSummary()">Display Summary</button>
+
+  <!-- Page 1 -->
+  <div class="page">
+    <fieldset>
+      <legend>Field Section</legend>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Personal Information</legend>
+      <div class="row">
+        <div class="col">
+          <label>First Name</label>
+          <input type="text" id="firstName">
+        </div>
+        <div class="col">
+          <label>Middle Name</label>
+          <input type="text" id="middleName">
+        </div>
+        <div class="col">
+          <label>Last Name</label>
+          <input type="text" id="lastName">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" style="width: 48%;">
+          <label>Driver's License</label>
+          <input type="text" id="driversLicense">
+        </div>
+        <div class="col" style="width: 48%; margin-right: 0;">
+          <label>Date of Birth</label>
+          <input type="date" id="dob">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" style="width: 20%;">
+          <label>Street Number</label>
+          <input type="text" id="streetNumber">
+        </div>
+        <div class="col" style="width: 50%;">
+          <label>Street Name</label>
+          <input type="text" id="streetName">
+        </div>
+        <div class="col" style="width: 26%; margin-right: 0;">
+          <label>Postal Code</label>
+          <input type="text" id="postalCode" pattern="[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d" title="Format: A1A 1A1">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" style="width: 48%;">
+          <label>Province</label>
+          <select id="province">
+            <option value="">Select Province</option>
+            <option>Alberta</option>
+            <option>British Columbia</option>
+            <option>Manitoba</option>
+            <option>New Brunswick</option>
+            <option>Newfoundland and Labrador</option>
+            <option>Nova Scotia</option>
+            <option>Ontario</option>
+            <option>Prince Edward Island</option>
+            <option>Quebec</option>
+            <option>Saskatchewan</option>
+            <option>Northwest Territories</option>
+            <option>Nunavut</option>
+            <option>Yukon</option>
+          </select>
+        </div>
+        <div class="col" style="width: 48%; margin-right: 0;">
+          <label>Country</label>
+          <input type="text" id="country" value="Canada">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Travel History</legend>
+      <table class="travel-table" id="travelTable">
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>From Date</th>
+            <th>End Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" name="country1"></td>
+            <td><input type="date" name="fromDate1"></td>
+            <td><input type="date" name="endDate1"></td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="add-button" onclick="addTravelRow()">+ Add Row</button>
+      <div class="signature">
+        <label>Supervisor Signature:</label>
+        <input type="text" style="width: 300px;">
+      </div>
+    </fieldset>
+  </div>
+
+  <!-- Page 2: Summary -->
+  <div class="page">
+    <fieldset>
+      <legend>Summary Information</legend>
+      <p><strong>Name:</strong> <span id="summaryName"></span></p>
+      <p><strong>Date of Birth:</strong> <span id="summaryDob"></span></p>
+
+      <h3>Travel History</h3>
+      <table class="travel-table" id="summaryTravelTable">
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>From Date</th>
+            <th>End Date</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </fieldset>
+  </div>
+
+  <script>
+    let travelRowCount = 1;
+
+    function addTravelRow() {
+      travelRowCount++;
+      const tbody = document.getElementById("travelTable").getElementsByTagName("tbody")[0];
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td><input type="text" name="country${travelRowCount}"></td>
+        <td><input type="date" name="fromDate${travelRowCount}"></td>
+        <td><input type="date" name="endDate${travelRowCount}"></td>
+      `;
+      tbody.appendChild(row);
+    }
+
+    function populateSummary() {
+      document.getElementById("summaryName").innerText =
+        document.getElementById("firstName").value + " " +
+        document.getElementById("middleName").value + " " +
+        document.getElementById("lastName").value;
+
+      document.getElementById("summaryDob").innerText =
+        document.getElementById("dob").value;
+
+      const summaryTbody = document.getElementById("summaryTravelTable").querySelector("tbody");
+      summaryTbody.innerHTML = "";
+      const rows = document.getElementById("travelTable").querySelectorAll("tbody tr");
+
+      rows.forEach(row => {
+        const cols = row.querySelectorAll("input");
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${cols[0].value}</td><td>${cols[1].value}</td><td>${cols[2].value}</td>`;
+        summaryTbody.appendChild(tr);
+      });
+    }
+
+    window.onbeforeprint = populateSummary;
+  </script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Invoice</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 40px;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .company-info, .client-info {
+      font-size: 0.95em;
+      line-height: 1.5;
+      width: 48%;
+    }
+
+    .company-info input,
+    .client-info input {
+      border: none;
+      width: 100%;
+      font-size: 1em;
+      background-color: transparent;
+    }
+
+    .company-info input:focus,
+    .client-info input:focus {
+      outline: none;
+      background-color: #fdfdfd;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+
+    thead {
+      background-color: #f0f0f0;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      border: none;
+      background: transparent;
+      font-size: 1em;
+      font-family: inherit;
+    }
+
+    input[type="text"]:focus, input[type="number"]:focus {
+      outline: none;
+      background-color: #fdfdfd;
+    }
+
+    tfoot td {
+      font-weight: bold;
+      background-color: #fafafa;
+      text-align: right;
+      padding: 10px;
+    }
+
+    tfoot td:first-child {
+      text-align: left;
+      width: 75%;
+    }
+
+    tfoot td:last-child {
+      width: 25%;
+    }
+
+    .no-print {
+      margin-bottom: 20px;
+    }
+
+    .removeBtn {
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+
+    .removeBtn:hover {
+      background-color: #c9302c;
+    }
+
+    @media print {
+      .no-print {
+        display: none;
+      }
+
+      input {
+        border: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="company-info">
+      <strong><input type="text" value="ABC Tech Inc."></strong><br>
+      <input type="text" value="123 Innovation Drive"><br>
+      <input type="text" value="Ottawa, ON K2P 1L4"><br>
+      <input type="text" value="support@abctech.ca">
+    </div>
+
+    <div class="client-info">
+      <strong>Bill To:</strong><br>
+      <input type="text" value="Client Name"><br>
+      <input type="text" value="456 Client Street"><br>
+      <input type="text" value="Toronto, ON M5J 2N1">
+    </div>
+  </header>
+
+  <h1>Invoice</h1>
+
+  <div class="no-print">
+    <button onclick="addRow()">Add Item</button>
+    <button onclick="window.print()">Print or Save as PDF</button>
+  </div>
+
+  <table id="receiptTable">
+    <thead>
+      <tr>
+        <th style="width: 60%;">Description</th>
+        <th style="width: 20%;">Cost ($)</th>
+        <th class="no-print" style="width: 20%;">Action</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- Rows added dynamically -->
+    </tbody>
+    <tfoot>
+        <tr>
+          <td colspan="2" style="text-align: right;">HST (13%)</td>
+          <td id="hstCell" style="text-align: right;">0.00</td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: right;">Total</td>
+          <td id="totalCell" style="text-align: right;">0.00</td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div style="display: flex; gap: 10px;">
+              <div style="width: 50%;">
+                <strong>Payment Terms:</strong><br>
+                <input type="text" placeholder="e.g. Due on receipt">
+              </div>
+              <div style="width: 50%;">
+                <strong>Notes:</strong><br>
+                <input type="text" placeholder="e.g. Thank you for your business!">
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tfoot>      
+  </table>
+
+  <script>
+    function addRow() {
+      const tableBody = document.getElementById('tableBody');
+      const row = document.createElement('tr');
+
+      const descCell = document.createElement('td');
+      const descInput = document.createElement('input');
+      descInput.type = 'text';
+      descInput.placeholder = 'Item description';
+      descCell.appendChild(descInput);
+
+      const costCell = document.createElement('td');
+      const costInput = document.createElement('input');
+      costInput.type = 'number';
+      costInput.min = '0';
+      costInput.step = '0.01';
+      costInput.placeholder = '0.00';
+      costInput.addEventListener('input', updateTotals);
+      costCell.appendChild(costInput);
+
+      const removeCell = document.createElement('td');
+      removeCell.className = 'no-print';
+      const removeBtn = document.createElement('button');
+      removeBtn.innerText = 'Remove';
+      removeBtn.className = 'removeBtn';
+      removeBtn.onclick = () => {
+        row.remove();
+        updateTotals();
+      };
+      removeCell.appendChild(removeBtn);
+
+      row.appendChild(descCell);
+      row.appendChild(costCell);
+      row.appendChild(removeCell);
+      tableBody.appendChild(row);
+    }
+
+    function updateTotals() {
+      const rows = document.querySelectorAll('#tableBody tr');
+      let total = 0;
+
+      rows.forEach(row => {
+        const input = row.querySelector('input[type="number"]');
+        const value = parseFloat(input.value);
+        if (!isNaN(value)) {
+          total += value;
+        }
+      });
+
+      const hst = total * 0.13;
+      const grandTotal = total + hst;
+
+      document.getElementById('hstCell').innerText = hst.toFixed(2);
+      document.getElementById('totalCell').innerText = grandTotal.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
